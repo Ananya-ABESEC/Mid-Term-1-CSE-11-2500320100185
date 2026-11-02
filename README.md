@@ -17,7 +17,7 @@ npm run dev        # auto-restart on changes (Node 18+)
 |---|---|---|
 | GET | `/api/books` | List books. Query: `search`, `author`, `genre`, `available=true`, `page`, `limit` |
 | GET | `/api/books/:id` | Get one book |
-| POST | `/api/books` | Create (`title`, `author`, `isbn` required; `genre`, `publishedYear`, `totalCopies` optional) |
+| POST | `/api/books` | Create (`title`, `author`; `category`, `quantity`,) |
 | PUT | `/api/books/:id` | Full update |
 | PATCH | `/api/books/:id` | Partial update |
 | DELETE | `/api/books/:id` | Delete (blocked if copies are on loan) |
@@ -42,7 +42,6 @@ npm run dev        # auto-restart on changes (Node 18+)
 | DELETE | `/api/loans/:id` | Delete a returned loan record |
 
 ## Business rules
-- ISBNs and member emails must be unique (409 on duplicates)
 - A book needs an available copy to be borrowed
 - A member can have at most 5 active loans and can't borrow the same book twice at once
 - Books/members with active loans can't be deleted
